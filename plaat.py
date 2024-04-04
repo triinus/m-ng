@@ -1,4 +1,3 @@
-
 import pygame.sprite
 
 class Plaat(pygame.sprite.Sprite):
@@ -12,13 +11,13 @@ class Plaat(pygame.sprite.Sprite):
         self.paremüleval = paremüleval
 
         if vasaküleval:
-            self.rect = self.image.get_rect(center=(200, 200))
+            self.rect = self.image.get_rect(center=(150, 100))
         if paremüleval:
-            self.rect = self.image.get_rect(center=(600, 200))
+            self.rect = self.image.get_rect(center=(650, 100))
         if vasakall:
-            self.rect = self.image.get_rect(center=(200, 300))
+            self.rect = self.image.get_rect(center=(150, 200))
         if paremall:
-            self.rect = self.image.get_rect(center=(600, 300))
+            self.rect = self.image.get_rect(center=(650, 200))
 
     def kuku(self):
 
@@ -35,5 +34,5 @@ class Plaat(pygame.sprite.Sprite):
         self.hävine()
 
     def hävine(self):
-        if self.rect.y > 300:
+        if self.rect.y > 500:
             self.kill()
