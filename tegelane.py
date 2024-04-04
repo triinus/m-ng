@@ -1,8 +1,9 @@
 import pygame.sprite
+
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.transform.scale(pygame.image.load("player.png").convert_alpha(), (150, 150))
+        self.image = pygame.transform.scale(pygame.image.load("tegelane.png").convert_alpha(), (150, 150))
         self.rect = self.image.get_rect(bottomleft=(400, 450))
 
     def liigub(self):
@@ -21,5 +22,8 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_KP1]:
             self.rect.x -= 10
 
-    def uuendab(self):
+        if keys[pygame.K_KP2]:
+            self.rect.y += 10
+
+    def update(self):
         self.liigub()
