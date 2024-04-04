@@ -1,4 +1,3 @@
-
 import pygame
 from tegelane import Player
 from plaat import Plaat
@@ -31,8 +30,7 @@ plaat = pygame.sprite.GroupSingle()
 player = pygame.sprite.GroupSingle()
 player.add(Player())
 
-aeg = randint(0, 5)  #võtab suvalise nr 1-5, mis on aeg, mis aja tagant plaat kukub
-
+aeg = randint(0, 5)  # võtab suvalise nr 1-5, mis on aeg, mis aja tagant plaat kukub
 
 plaat_1 = Plaat(True, False, False, False)
 plaat_2 = Plaat(False, True, False, False)
@@ -42,18 +40,14 @@ plaadid = (plaat_1, plaat_2, plaat_3, plaat_4)
 
 suvaline_plaat = choice(plaadid)
 
-
-#kas seda on vaja?
 plaat_group = pygame.sprite.Group()
 plaat_group.add(plaadid)
 
-#kas seda on vaja?
+# kas seda on vaja?
 obstacle_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(obstacle_timer, 1500)
 
-
 game_active = False
-
 
 while True:
     for event in pygame.event.get():
@@ -65,9 +59,13 @@ while True:
     if event.type == obstacle_timer:
         plaat_group.add(suvaline_plaat)
 
-    if suvaline_plaat:  #vaja et kuvaks plaatide listist sobiva plaadi sõltuvalt numbrist
+    '''for plaat in plaadid:  # vaja et kuvaks plaatide listist sobiva plaadi sõltuvalt numbrist
+        if suvaline_plaat == plaat in plaadid:
+            plaat_group.draw(screen)
+            plaat_group.update()'''
 
-
+    while aeg < 10:
+        plaat_group.draw(screen)
 
     if pygame.sprite.spritecollide(player, plaadid, False):
         print("Põrge!")
@@ -80,4 +78,3 @@ while True:
 
     pygame.display.update()
     clock.tick(60)
-
