@@ -2,7 +2,7 @@ import pygame
 from tegelane import Player
 from plaat import Plaat
 from random import randint, choice
-
+from süda import Süda
 def plaat_movement(plaat_list):
     if plaat_list:
         for plaat_rect in plaat_list:
@@ -21,6 +21,9 @@ def plaat_movement(plaat_list):
 
 pygame.init()
 screen = pygame.display.set_mode((968, 548))
+taust = pygame.image.load("taust.jpg").convert()
+taust = pygame.transform.scale(taust, (968,548))
+
 clock = pygame.time.Clock()
 
 plaat = pygame.sprite.GroupSingle()
@@ -44,6 +47,9 @@ pygame.time.set_timer(obstacle_timer, aeg)
 game_active = False
 
 while True:
+    screen.fill((0, 0, 0))
+    screen.blit(taust, (0, 0))
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -65,10 +71,12 @@ while True:
     plaat_group.draw(screen)
     plaat_group.update()
 
-    if pygame.sprite.spritecollide(player.sprite, plaat_group, False):
+    if pygame.sprite.spritecollide(player.sprite, plaat_group, True):
         print("Põrge!")
 
-    screen.fill((0, 0, 0))
+    süda.draw(screen)
+    süda.update()
+
     player.draw(screen)
     player.update()
 
