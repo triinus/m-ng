@@ -33,6 +33,7 @@ class Plaat(pygame.sprite.Sprite):
         self.kuku()
         self.hävine()
 
+
     def hävine(self):
         if self.rect.y > 500:
             self.kill()

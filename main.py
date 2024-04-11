@@ -41,6 +41,7 @@ plaadidStartPositsioon= ["v-y", "v-a", "p-y", "p-a"]
 
 plaat_group = pygame.sprite.Group()
 
+
 obstacle_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(obstacle_timer, aeg)
 
