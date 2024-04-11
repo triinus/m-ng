@@ -44,6 +44,7 @@ pygame.time.set_timer(obstacle_timer, aeg)
 
 game_active = False
 
+
 punktid = 0
 while True:
     for event in pygame.event.get():

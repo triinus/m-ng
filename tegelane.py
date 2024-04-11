@@ -6,6 +6,7 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(pygame.image.load("tegelaneOtse.png").convert_alpha(), (100, 125))
         self.rect = self.image.get_rect(bottomleft=(400, 500))
 
+
     def liigub(self):
         keys = pygame.key.get_pressed()
 
