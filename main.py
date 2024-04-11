@@ -2,6 +2,7 @@ import pygame
 from tegelane import Player
 from plaat import Plaat
 from random import randint, choice
+red = (255, 0, 0)
 
 def plaat_movement(plaat_list):
     if plaat_list:
@@ -43,6 +44,7 @@ pygame.time.set_timer(obstacle_timer, aeg)
 
 game_active = False
 
+punktid = 0
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -65,12 +67,18 @@ while True:
     plaat_group.draw(screen)
     plaat_group.update()
 
-    if pygame.sprite.spritecollide(player.sprite, plaat_group, False):
+    if pygame.sprite.spritecollide(player.sprite, plaat_group, True):
         print("Põrge!")
+        punktid += 100
 
     screen.fill((0, 0, 0))
     player.draw(screen)
     player.update()
+
+    font = pygame.font.SysFont("Bold", 50)
+    txtsurf = font.render(str(punktid), True, red)
+    screen.blit(txtsurf, (300 - txtsurf.get_width() // 2, 50 - txtsurf.get_height() // 2))
+    pygame.display.update()
 
     plaat_group.draw(screen)
     plaat_group.update()
