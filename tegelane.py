@@ -20,5 +20,6 @@ class Player(pygame.sprite.Sprite):
             if self.rect.x > 200:
                 self.rect.x -= 10
 
+
     def update(self):
         self.liigub()
