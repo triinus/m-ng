@@ -5,6 +5,7 @@ class Plaat(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.transform.scale(pygame.image.load("plaat.png").convert_alpha(), (50, 50))
 
+
         self.paremall = paremall
         self.vasaküleval = vasaküleval
         self.vasakall = vasakall
