@@ -3,6 +3,7 @@ from tegelane import Player
 from plaat import Plaat
 from random import randint, choice
 from süda import Süda
+
 def plaat_movement(plaat_list):
     if plaat_list:
         for plaat_rect in plaat_list:
