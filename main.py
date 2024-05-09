@@ -75,8 +75,8 @@ while True:
     if pygame.sprite.spritecollide(player.sprite, plaat_group, True):
         print("Põrge!")
 
-    süda.draw(screen)
-    süda.update()
+    '''süda.draw(screen)
+    süda.update()'''
 
     player.draw(screen)
     player.update()
