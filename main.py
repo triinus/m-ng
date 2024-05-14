@@ -15,7 +15,6 @@ def plaat_movement(plaat_list):
                 screen.blit(Plaat.kuku, plaat_rect)
 
         plaat_list = [plaat for plaat in plaat_list if plaat.x > -100]
-
         return plaat_list
     else:
         return []
@@ -61,14 +60,13 @@ while True:
         if event.type == obstacle_timer:
             suvalineAsukoht = choice(plaadidStartPositsioon)
             if suvalineAsukoht == "v-y":
-                suvalinePlaat = Plaat(True, False, False, False)
+                suvalinePlaat = Plaat(screen, True, False, False, False)
             elif suvalineAsukoht == "v-a":
-                suvalinePlaat = Plaat(False, False, True, False)
+                suvalinePlaat = Plaat(screen, False, False, True, False)
             elif suvalineAsukoht == "p-y":
-                suvalinePlaat = Plaat(False, True, False, False)
+                suvalinePlaat = Plaat(screen, False, True, False, False)
             elif suvalineAsukoht == "p-a":
-                suvalinePlaat = Plaat(False, False, False, True)
-
+                suvalinePlaat = Plaat(screen, False, False, False, True)
             plaat_group.add(suvalinePlaat)
 
     if pygame.sprite.spritecollide(player.sprite, plaat_group, True):
@@ -77,10 +75,6 @@ while True:
 
     südamed.draw(screen)
     südamed.update()
-
-    '''if :
-        print("Kaotasid elu")
-        südamed.empty()'''
 
     player.draw(screen)
     player.update()

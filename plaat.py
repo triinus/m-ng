@@ -1,9 +1,11 @@
 import pygame.sprite
 
 class Plaat(pygame.sprite.Sprite):
-    def __init__(self,vasaküleval, paremüleval, vasakall, paremall):
+    def __init__(self,screen ,vasaküleval, paremüleval, vasakall, paremall):
         super().__init__()
         self.image = pygame.transform.scale(pygame.image.load("plaat.png").convert_alpha(), (50, 50))
+        self.mängläbi = pygame.transform.scale(pygame.image.load("lõpp.jpg").convert_alpha(), (968, 548))
+        self.screen = screen
 
         self.paremall = paremall
         self.vasaküleval = vasaküleval
@@ -36,10 +38,12 @@ class Plaat(pygame.sprite.Sprite):
     def hävine(self, südamed):
         if self.rect.y > 500:
             self.kill()
-            if len(südamed) <= 0:
-                 # Game over
-
+            if len(südamed) <= 1:
+                self.screen.blit(self.mängläbi, (0, 0))
+                pygame.display.flip()
+                pygame.time.delay(5000)
+                pygame.quit()
+                sys.exit()
             for süda in südamed:
                 süda.kill()
                 break
-
